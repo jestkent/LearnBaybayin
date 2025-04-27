@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baybayin Buddy - Learn the Ancient Filipino Script</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Baybayin Buddy</h1>
+            <p class="tagline">Learn and write in the ancient Filipino script—one word at a time!</p>
+        </header>
+        
+        <nav>
+            <button id="converter-btn" class="active">Converter</button>
+            <button id="tutorial-btn">Stroke Tutorial</button>
+            <button id="quiz-btn">Quiz</button>
+            <button id="history-btn">History</button>
+        </nav>
+        
+        <!-- Converter Section -->
+        <section id="converter" class="section active">
+            <h2>English/Tagalog to Baybayin Converter</h2>
+            <div class="converter-container">
+                <div class="input-container">
+                    <label for="text-input">Enter a word or phrase to convert:</label>
+                    <input type="text" id="text-input" placeholder="Example: kamusta" autofocus>
+                </div>
+                
+                <div class="output-container">
+                    <h3>Baybayin Result:</h3>
+                    <div class="baybayin-output" id="baybayin-output"></div>
+                    <div class="explanation" id="conversion-explanation"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tutorial Section -->
+        <section id="tutorial" class="section">
+            <h2>Stroke-by-Stroke Tutorial</h2>
+            <div class="tutorial-container">
+                <p>Select a character to see how it's written:</p>
+                
+                <div class="character-grid" id="character-grid">
+                    <!-- Characters will be populated by JavaScript -->
+                </div>
+                
+                <div class="tutorial-display">
+                    <svg class="stroke-animation" id="stroke-animation" viewBox="0 0 200 200">
+                        <!-- Stroke paths will be added by JavaScript -->
+                    </svg>
+                </div>
+                
+                <div class="tutorial-controls">
+                    <button id="play-btn">Play</button>
+                    <button id="pause-btn">Pause</button>
+                    <button id="reset-btn">Reset</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <h2>Test Your Baybayin Knowledge</h2>
+            <div class="quiz-container">
+                <div class="quiz-question" id="quiz-question">
+                    What is the Baybayin character for this sound?
+                </div>
+                
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Options will be added by JavaScript -->
+                </div>
+                
+                <div class="quiz-result" id="quiz-result"></div>
+                
+                <button class="quiz-next" id="quiz-next">Next Question</button>
+            </div>
+        </section>
+        
+        <!-- History Section -->
+        <section id="history" class="section">
+            <h2>The History of Baybayin</h2>
+            <div class="history-container">
+                <h3>Origins</h3>
+                <p>Baybayin is an ancient Philippine script that was widely used in Luzon and other parts of the Philippines prior to and during the 16th and 17th centuries, before the Spanish colonization period. The term "Baybayin" comes from the Tagalog word "baybay," which means "to spell, write, or syllabize."</p>
+                
+                <h3>Writing System</h3>
+                <p>Baybayin is an abugida writing system, which means it uses consonant-vowel combinations. Each character represents a consonant with an inherent "a" sound. Marks called "kudlit" are added to change the inherent vowel to "e/i" or "o/u".</p>
+                
+                <h3>Historical Use</h3>
+                <p>Baybayin was used for personal letters, poetry, and various records. Early Spanish accounts tell of widespread literacy among pre-colonial Filipinos, with many able to read and write in Baybayin. It was used for both the Tagalog language and other Philippine languages.</p>
+                
+                <h3>Decline</h3>
+                <p>With Spanish colonization came the introduction of the Latin alphabet, which gradually replaced Baybayin in everyday use. By the late 17th century, Baybayin had largely fallen out of use in most areas, though some remote regions continued using it into the 18th and 19th centuries.</p>
+                
+                <h3>Modern Revival</h3>
+                <p>Today, there is growing interest in reviving Baybayin as part of Philippine cultural heritage. It appears on the Philippine peso, in government logos, art, tattoos, and modern digital typography. Various organizations promote Baybayin literacy, and there are ongoing efforts to standardize and preserve this ancient script for future generations.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Baybayin Buddy - Learn the ancient Filipino script with ease!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
