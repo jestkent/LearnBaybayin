@@ -1,408 +1,100 @@
-// Character mapping for Baybayin
-const baybayinMap = {
-    // Vowels
-    'a': 'ᜀ',
-    'e': 'ᜁ',
-    'i': 'ᜁ',
-    'o': 'ᜂ',
-    'u': 'ᜂ',
-    
-    // Consonants (with inherent "a" sound)
-    'ba': 'ᜊ',
-    'ka': 'ᜃ',
-    'da': 'ᜇ',
-    'ga': 'ᜄ',
-    'ha': 'ᜑ',
-    'la': 'ᜎ',
-    'ma': 'ᜋ',
-    'na': 'ᜈ',
-    'nga': 'ᜅ',
-    'pa': 'ᜉ',
-    'sa': 'ᜐ',
-    'ta': 'ᜆ',
-    'wa': 'ᜏ',
-    'ya': 'ᜌ',
-    'ra': 'ᜇ', // r often substituted with d in Baybayin
-    
-    // Consonants with "i/e" sound (using kudlit above)
-    'be': 'ᜊᜒ',
-    'bi': 'ᜊᜒ',
-    'ke': 'ᜃᜒ',
-    'ki': 'ᜃᜒ',
-    'de': 'ᜇᜒ',
-    'di': 'ᜇᜒ',
-    'ge': 'ᜄᜒ',
-    'gi': 'ᜄᜒ',
-    'he': 'ᜑᜒ',
-    'hi': 'ᜑᜒ',
-    'le': 'ᜎᜒ',
-    'li': 'ᜎᜒ',
-    'me': 'ᜋᜒ',
-    'mi': 'ᜋᜒ',
-    'ne': 'ᜈᜒ',
-    'ni': 'ᜈᜒ',
-    'nge': 'ᜅᜒ',
-    'ngi': 'ᜅᜒ',
-    'pe': 'ᜉᜒ',
-    'pi': 'ᜉᜒ',
-    'se': 'ᜐᜒ',
-    'si': 'ᜐᜒ',
-    'te': 'ᜆᜒ',
-    'ti': 'ᜆᜒ',
-    'we': 'ᜏᜒ',
-    'wi': 'ᜏᜒ',
-    'ye': 'ᜌᜒ',
-    'yi': 'ᜌᜒ',
-    're': 'ᜇᜒ',
-    'ri': 'ᜇᜒ',
-    
-    // Consonants with "o/u" sound (using kudlit below)
-    'bo': 'ᜊᜓ',
-    'bu': 'ᜊᜓ',
-    'ko': 'ᜃᜓ',
-    'ku': 'ᜃᜓ',
-    'do': 'ᜇᜓ',
-    'du': 'ᜇᜓ',
-    'go': 'ᜄᜓ',
-    'gu': 'ᜄᜓ',
-    'ho': 'ᜑᜓ',
-    'hu': 'ᜑᜓ',
-    'lo': 'ᜎᜓ',
-    'lu': 'ᜎᜓ',
-    'mo': 'ᜋᜓ',
-    'mu': 'ᜋᜓ',
-    'no': 'ᜈᜓ',
-    'nu': 'ᜈᜓ',
-    'ngo': 'ᜅᜓ',
-    'ngu': 'ᜅᜓ',
-    'po': 'ᜉᜓ',
-    'pu': 'ᜉᜓ',
-    'so': 'ᜐᜓ',
-    'su': 'ᜐᜓ',
-    'to': 'ᜆᜓ',
-    'tu': 'ᜆᜓ',
-    'wo': 'ᜏᜓ',
-    'wu': 'ᜏᜓ',
-    'yo': 'ᜌᜓ',
-    'yu': 'ᜌᜓ',
-    'ro': 'ᜇᜓ',
-    'ru': 'ᜇᜓ',
-    
-    // Special case for standalone consonants (with virama/pamudpod)
-    'b': 'ᜊ᜴',
-    'k': 'ᜃ᜴',
-    'd': 'ᜇ᜴',
-    'g': 'ᜄ᜴',
-    'h': 'ᜑ᜴',
-    'l': 'ᜎ᜴',
-    'm': 'ᜋ᜴',
-    'n': 'ᜈ᜴',
-    'ng': 'ᜅ᜴',
-    'p': 'ᜉ᜴',
-    's': 'ᜐ᜴',
-    't': 'ᜆ᜴',
-    'w': 'ᜏ᜴',
-    'y': 'ᜌ᜴',
-    'r': 'ᜇ᜴'
-};
+// Character mapping for Baybayin (ensure this is defined above this code in your script.js)
+/* const baybayinMap = { ... }; */
 
-// Simplified character structure for tutorials
-const strokeTutorials = {
-    'a': {
-        name: 'A',
-        strokes: [
-            'M 50,140 C 70,80 130,80 150,140',
-            'M 100,90 L 100,180'
-        ]
-    },
-    'i': {
-        name: 'I/E',
-        strokes: [
-            'M 50,140 C 70,80 130,80 150,140',
-            'M 100,90 L 100,180',
-            'M 80,70 L 120,50'
-        ]
-    },
-    'u': {
-        name: 'U/O',
-        strokes: [
-            'M 50,140 C 70,80 130,80 150,140',
-            'M 100,90 L 100,180',
-            'M 80,160 L 120,180'
-        ]
-    },
-    'ba': {
-        name: 'BA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 60,60 L 60,180',
-            'M 60,180 L 140,180'
-        ]
-    },
-    'ka': {
-        name: 'KA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 100,60 L 100,180',
-            'M 140,120 L 60,120'
-        ]
-    },
-    'da': {
-        name: 'DA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 100,60 L 100,180',
-            'M 140,120 L 100,120'
-        ]
-    },
-    'ga': {
-        name: 'GA',
-        strokes: [
-            'M 60,120 L 140,120',
-            'M 100,60 L 100,180',
-            'M 60,60 C 100,90 100,90 140,60'
-        ]
-    },
-    'ha': {
-        name: 'HA',
-        strokes: [
-            'M 80,60 C 60,100 60,140 80,180',
-            'M 120,60 C 140,100 140,140 120,180',
-            'M 70,120 L 130,120'
-        ]
-    },
-    'la': {
-        name: 'LA',
-        strokes: [
-            'M 60,60 C 100,90 140,60 140,60',
-            'M 100,60 L 100,180'
-        ]
-    },
-    'ma': {
-        name: 'MA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 60,60 L 60,180',
-            'M 140,60 L 140,180',
-            'M 60,120 L 140,120'
-        ]
-    },
-    'na': {
-        name: 'NA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 60,60 L 60,180',
-            'M 140,60 L 140,180'
-        ]
-    },
-    'nga': {
-        name: 'NGA',
-        strokes: [
-            'M 60,120 Q 100,60 140,120',
-            'M 100,120 L 100,180',
-            'M 70,150 L 130,150'
-        ]
-    },
-    'pa': {
-        name: 'PA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 60,60 L 60,180',
-            'M 60,120 L 100,120'
-        ]
-    },
-    'sa': {
-        name: 'SA',
-        strokes: [
-            'M 100,60 L 100,180',
-            'M 60,90 C 100,60 100,60 140,90',
-            'M 60,150 C 100,120 100,120 140,150'
-        ]
-    },
-    'ta': {
-        name: 'TA',
-        strokes: [
-            'M 60,60 L 140,60',
-            'M 100,60 L 100,180'
-        ]
-    },
-    'wa': {
-        name: 'WA',
-        strokes: [
-            'M 60,90 C 100,60 140,90 140,90',
-            'M 60,150 C 100,120 140,150 140,150'
-        ]
-    },
-    'ya': {
-        name: 'YA',
-        strokes: [
-            'M 70,60 C 100,80 130,60 130,60',
-            'M 100,60 L 100,120',
-            'M 70,120 C 100,140 130,120 130,120'
-        ]
-    }
-};
-
-// Quiz data
-const quizData = [
-    {
-        question: "What is the Baybayin character for 'A'?",
-        options: ['ᜀ', 'ᜁ', 'ᜃ', 'ᜇ'],
-        answer: 'ᜀ'
-    },
-    {
-        question: "What is the Baybayin character for 'KA'?",
-        options: ['ᜃ', 'ᜊ', 'ᜆ', 'ᜑ'],
-        answer: 'ᜃ'
-    },
-    {
-        question: "What is the Baybayin character for 'BA'?",
-        options: ['ᜊ', 'ᜀ', 'ᜃ', 'ᜇ'],
-        answer: 'ᜊ'
-    },
-    {
-        question: "Which Baybayin character represents 'MA'?",
-        options: ['ᜋ', 'ᜈ', 'ᜎ', 'ᜐ'],
-        answer: 'ᜋ'
-    },
-    {
-        question: "What is the Baybayin character for 'TA'?",
-        options: ['ᜆ', 'ᜃ', 'ᜊ', 'ᜇ'],
-        answer: 'ᜆ'
-    },
-    {
-        question: "Which sound does 'ᜎ' represent in Baybayin?",
-        options: ['LA', 'RA', 'NA', 'WA'],
-        answer: 'LA'
-    },
-    {
-        question: "Which sound does 'ᜐ' represent in Baybayin?",
-        options: ['SA', 'HA', 'YA', 'PA'],
-        answer: 'SA'
-    },
-    {
-        question: "What does the kudlit mark above a character do?",
-        options: ['Changes the vowel to E/I', 'Changes the vowel to O/U', 'Removes the vowel sound', 'Doubles the consonant'],
-        answer: 'Changes the vowel to E/I'
-    },
-    {
-        question: "What does the kudlit mark below a character do?",
-        options: ['Changes the vowel to O/U', 'Changes the vowel to E/I', 'Removes the vowel sound', 'Doubles the consonant'],
-        answer: 'Changes the vowel to O/U'
-    },
-    {
-        question: "Which of these is the Baybayin for 'PA'?",
-        options: ['ᜉ', 'ᜊ', 'ᜃ', 'ᜅ'],
-        answer: 'ᜉ'
-    }
-];
-
-// DOM elements
-const converterBtn = document.getElementById('converter-btn');
-const tutorialBtn = document.getElementById('tutorial-btn');
-const quizBtn = document.getElementById('quiz-btn');
-const historyBtn = document.getElementById('history-btn');
-
-const converterSection = document.getElementById('converter');
-const tutorialSection = document.getElementById('tutorial');
-const quizSection = document.getElementById('quiz');
-const historySection = document.getElementById('history');
-
+// DOM elements (ensure these are defined above this code)
+/*
 const textInput = document.getElementById('text-input');
 const baybayinOutput = document.getElementById('baybayin-output');
 const conversionExplanation = document.getElementById('conversion-explanation');
-
-const characterGrid = document.getElementById('character-grid');
-const strokeAnimation = document.getElementById('stroke-animation');
-const playBtn = document.getElementById('play-btn');
-const pauseBtn = document.getElementById('pause-btn');
-const resetBtn = document.getElementById('reset-btn');
-
-const quizQuestion = document.getElementById('quiz-question');
-const quizOptions = document.getElementById('quiz-options');
-const quizResult = document.getElementById('quiz-result');
-const quizNextBtn = document.getElementById('quiz-next');
-
-// Navigation
-converterBtn.addEventListener('click', () => {
-    setActiveSection('converter');
-});
-
-tutorialBtn.addEventListener('click', () => {
-    setActiveSection('tutorial');
-    if (characterGrid.children.length === 0) {
-        populateCharacterGrid();
-    }
-});
-
-quizBtn.addEventListener('click', () => {
-    setActiveSection('quiz');
-    if (!quizOptions.children.length) {
-        loadNewQuestion();
-    }
-});
-
-historyBtn.addEventListener('click', () => {
-    setActiveSection('history');
-});
-
-function setActiveSection(section) {
-    // Hide all sections
-    converterSection.classList.remove('active');
-    tutorialSection.classList.remove('active');
-    quizSection.classList.remove('active');
-    historySection.classList.remove('active');
-    
-    // Remove active class from all buttons
-    converterBtn.classList.remove('active');
-    tutorialBtn.classList.remove('active');
-    quizBtn.classList.remove('active');
-    historyBtn.classList.remove('active');
-    
-    // Show selected section and activate button
-    document.getElementById(section).classList.add('active');
-    document.getElementById(`${section}-btn`).classList.add('active');
-}
+*/
 
 // Converter functionality
 textInput.addEventListener('input', convertText);
 
-function getSyllable(text, index) {
+function getSyllable(text, index) { // text is assumed to be lowercased by the caller
     // Check for vowels first
     if ('aeiou'.includes(text[index])) {
         return text[index];
     }
-    
+
     // Check for 'ng' special case
     if (text[index] === 'n' && index + 1 < text.length && text[index + 1] === 'g') {
         if (index + 2 < text.length && 'aeiou'.includes(text[index + 2])) {
-            return 'ng' + text[index + 2];
+            return 'ng' + text[index + 2]; // e.g., nga, nge, ngi, ngo, ngu
         }
-        return 'ng';
+        return 'ng'; // Standalone 'ng'
     }
-    
-    // Check for consonant + vowel
-    if (index + 1 < text.length && 'aeiou'.includes(text[index + 1])) {
+
+    // Check for consonant + vowel (e.g., ba, ke, di, etc.)
+    // This relies on baybayinMap having entries like 'ba', 'ke'.
+    // It will form pairs like 'xa' if 'x' is current char and 'a' is next.
+    // The baybayinMap lookup later will determine if it's a valid Baybayin syllable.
+    const consonants = "bkdghlmnpstwyr"; // Common consonants, 'ng' handled above
+    if (consonants.includes(text[index]) && index + 1 < text.length && 'aeiou'.includes(text[index + 1])) {
         return text[index] + text[index + 1];
     }
-    
-    // Standalone consonant
+
+    // Standalone consonant or any other single character
     return text[index];
 }
 
-function convertToBaybayin(text) {
+function convertToBaybayin(inputText) {
     let result = '';
     let i = 0;
-    
+    const text = inputText.toLowerCase(); // Normalize input to lowercase
+
     while (i < text.length) {
-        // Skip spaces and punctuation
-        if (text[i] === ' ' || ',.?!;:\'"-_()[]{}\/'.includes(text[i])) {
-            result += text[i];
+        const currentChar = text[i];
+
+        // Skip spaces and common punctuation directly
+        if (currentChar === ' ' || ',.?!;:\'"-_()[]{}/\\'.includes(currentChar)) {
+            result += currentChar;
             i++;
             continue;
         }
-        
-        // Get syllable at current position
+
+        // Try to get a syllable starting at current position i
+        // getSyllable will return the longest match it can find (e.g., "nga")
+        // or a single character (e.g., "k", "a").
         const syllable = getSyllable(text, i);
-        
-        if (syllable && bayb
+
+        // Check if the identified syllable has a direct mapping in baybayinMap
+        if (syllable && baybayinMap.hasOwnProperty(syllable)) {
+            result += baybayinMap[syllable];
+            i += syllable.length; // Advance by the length of the successfully mapped syllable
+        } else {
+            // If the syllable from getSyllable isn't in the map (e.g., getSyllable returned "xz" and "xz" is not a key)
+            // OR if the syllable was a single character that's not in the map (e.g. "z")
+            // we fall back to processing just the single current character (text[i] or currentChar).
+            // The baybayinMap should contain single character mappings for vowels (a,e,i,o,u)
+            // and standalone consonants (b, k, d, etc. for pamudpod versions).
+            if (baybayinMap.hasOwnProperty(currentChar)) {
+                result += baybayinMap[currentChar];
+            } else {
+                // If no mapping for the single character (e.g., it's a number, or a foreign letter like 'z'),
+                // append it as is.
+                result += currentChar;
+            }
+            i++; // Advance by one character in this fallback case
+        }
+    }
+    return result;
+}
+
+function convertText() {
+    const inputText = textInput.value;
+    const baybayinResult = convertToBaybayin(inputText);
+    baybayinOutput.textContent = baybayinResult; // Use textContent for safety and correct rendering of characters
+
+    if (inputText.trim() === "") {
+        conversionExplanation.textContent = "Enter a word or phrase to convert.";
+    } else {
+        // You can provide a more detailed explanation or clear it if not needed
+        conversionExplanation.textContent = "The Baybayin script is shown above. Note that 'R' sounds are often written using the 'D' character, and standalone consonants use a virama mark (pamudpod) to cancel the inherent vowel.";
+    }
+}
+
+// Ensure the rest of your script.js (for tutorial, quiz, history, navigation etc.) follows from here.
+// For example:
+// const characterGrid = document.getElementById('character-grid');
+// ... and other functions like populateCharacterGrid, loadNewQuestion etc.
